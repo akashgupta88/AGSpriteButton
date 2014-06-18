@@ -25,6 +25,7 @@
 		CEE01A4619519CD20024E595 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CEE01A1E19519CD20024E595 /* UIKit.framework */; };
 		CEE01A4E19519CD20024E595 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = CEE01A4C19519CD20024E595 /* InfoPlist.strings */; };
 		CEE01A5019519CD20024E595 /* AGSpriteButtonTests.m in Sources */ = {isa = PBXBuildFile; fileRef = CEE01A4F19519CD20024E595 /* AGSpriteButtonTests.m */; };
+		CEE01A5B19519DBA0024E595 /* AGSpriteButton.m in Sources */ = {isa = PBXBuildFile; fileRef = CEE01A5A19519DBA0024E595 /* AGSpriteButton.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -62,6 +63,8 @@
 		CEE01A4B19519CD20024E595 /* AGSpriteButtonTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "AGSpriteButtonTests-Info.plist"; sourceTree = "<group>"; };
 		CEE01A4D19519CD20024E595 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		CEE01A4F19519CD20024E595 /* AGSpriteButtonTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AGSpriteButtonTests.m; sourceTree = "<group>"; };
+		CEE01A5919519DBA0024E595 /* AGSpriteButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AGSpriteButton.h; sourceTree = "<group>"; };
+		CEE01A5A19519DBA0024E595 /* AGSpriteButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AGSpriteButton.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -131,6 +134,8 @@
 				CEE01A3519519CD20024E595 /* ViewController.m */,
 				CEE01A3719519CD20024E595 /* MyScene.h */,
 				CEE01A3819519CD20024E595 /* MyScene.m */,
+				CEE01A5919519DBA0024E595 /* AGSpriteButton.h */,
+				CEE01A5A19519DBA0024E595 /* AGSpriteButton.m */,
 				CEE01A3A19519CD20024E595 /* Spaceship.png */,
 				CEE01A3C19519CD20024E595 /* Images.xcassets */,
 				CEE01A2319519CD20024E595 /* Supporting Files */,
@@ -268,6 +273,7 @@
 			files = (
 				CEE01A3919519CD20024E595 /* MyScene.m in Sources */,
 				CEE01A3619519CD20024E595 /* ViewController.m in Sources */,
+				CEE01A5B19519DBA0024E595 /* AGSpriteButton.m in Sources */,
 				CEE01A2D19519CD20024E595 /* AppDelegate.m in Sources */,
 				CEE01A2919519CD20024E595 /* main.m in Sources */,
 			);

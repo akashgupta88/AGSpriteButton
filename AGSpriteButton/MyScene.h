@@ -7,6 +7,7 @@
 //
 
 #import <SpriteKit/SpriteKit.h>
+#import "AGSpriteButton.h"
 
 @interface MyScene : SKScene
 

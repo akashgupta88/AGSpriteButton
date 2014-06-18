@@ -24,6 +24,18 @@
                                        CGRectGetMidY(self.frame));
         
         [self addChild:myLabel];
+        
+        /*
+         Adding AGSpriteButton
+         
+         */
+        
+        AGSpriteButton *button = [AGSpriteButton buttonWithColor:[UIColor redColor] andSize:CGSizeMake(300, 100)];
+        [button setLabelWithText:@"Add New Spaceship" andFont:nil withColor:nil];
+        button.position = CGPointMake(self.size.width / 2, self.size.height / 3);
+        [button addTarget:self selector:@selector(addSpaceshipAtPoint:) withObject:[NSValue valueWithCGPoint:CGPointMake(self.size.width / 2, self.size.height / 2)] forControlEvent:AGButtonControlEventTouchUpInside];
+        [self addChild:button];
+        
     }
     return self;
 }
@@ -34,15 +46,7 @@
     for (UITouch *touch in touches) {
         CGPoint location = [touch locationInNode:self];
         
-        SKSpriteNode *sprite = [SKSpriteNode spriteNodeWithImageNamed:@"Spaceship"];
-        
-        sprite.position = location;
-        
-        SKAction *action = [SKAction rotateByAngle:M_PI duration:1];
-        
-        [sprite runAction:[SKAction repeatActionForever:action]];
-        
-        [self addChild:sprite];
+        [self addSpaceshipAtPoint:[NSValue valueWithCGPoint:location]];
     }
 }
 
@@ -50,4 +54,22 @@
     /* Called before each frame is rendered */
 }
 
+
+-(void)addSpaceshipAtPoint:(NSValue*)pointValue
+{
+    CGPoint point = [pointValue CGPointValue];
+    
+    SKSpriteNode *sprite = [SKSpriteNode spriteNodeWithImageNamed:@"Spaceship"];
+    
+    sprite.physicsBody = [SKPhysicsBody bodyWithCircleOfRadius:sprite.size.width / 2];
+    
+    sprite.position = point;
+    
+    SKAction *action = [SKAction rotateByAngle:M_PI duration:1];
+    
+    [sprite runAction:[SKAction repeatActionForever:action]];
+    
+    [self addChild:sprite];
+
+}
 @end
