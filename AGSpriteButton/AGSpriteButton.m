@@ -112,7 +112,7 @@
 
 -(void)setLabelWithText:(NSString *)text andFont:(UIFont *)font withColor:(UIColor*)fontColor
 {
-    if (self.label == Nil)
+    if (self.label == nil)
     {
         self.label = [SKLabelNode node];
         self.label.verticalAlignmentMode = SKLabelVerticalAlignmentModeCenter;
@@ -122,18 +122,18 @@
         [self.label removeFromParent];
     }
     
-    if (text != Nil)
+    if (text != nil)
     {
         self.label.text = text;
     }
     
-    if (font != Nil)
+    if (font != nil)
     {
         self.label.fontName = font.fontName;
         self.label.fontSize = font.pointSize;
     }
     
-    if (fontColor != Nil)
+    if (fontColor != nil)
     {
         self.label.fontColor = fontColor;
     }
@@ -148,7 +148,7 @@
 {
     if (self.exclusiveTouch)
     {
-        if (currentTouch == Nil)
+        if (currentTouch == nil)
         {
             currentTouch = [touches anyObject];
             
@@ -280,7 +280,7 @@
         
         NSValue *valSelector = [dicSelector objectForKey:@"selector"];
         
-        SEL selSelector = Nil;
+        SEL selSelector = nil;
         
         if (valSelector)
         {
@@ -289,7 +289,7 @@
         
         AGButtonControlEvent selControlEvent = [[dicSelector objectForKey:@"controlEvent"]intValue];
         
-        if (target != Nil)
+        if (target != nil)
         {
             if ([selTarget isEqual:target])
             {
@@ -303,7 +303,7 @@
         
         if (shouldCheckSelector)
         {
-            if (selector != Nil)
+            if (selector != nil)
             {
                 if (selSelector == selector)
                 {
