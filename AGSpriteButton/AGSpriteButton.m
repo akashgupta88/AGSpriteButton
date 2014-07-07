@@ -226,7 +226,7 @@
 {
     //You can define your custom transformation here.
     
-    [self runAction:[SKAction scaleTo:0.9 duration:0.1]];
+    [self runAction:[SKAction scaleBy:0.8 duration:0.1]];
 }
 
 -(void)transformForTouchDrag
@@ -239,7 +239,7 @@
 {
     //You can define your custom transformation here.
     
-    [self runAction:[SKAction scaleTo:1.0 duration:0.1]];
+    [self runAction:[SKAction scaleBy:1.25 duration:0.1]];
 }
 
 #pragma mark - TARGET/SELECTOR HANDLING
