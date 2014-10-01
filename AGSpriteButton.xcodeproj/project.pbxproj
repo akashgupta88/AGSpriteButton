@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A93CD09119DC130B00C63879 /* AGSpriteButton.m in Sources */ = {isa = PBXBuildFile; fileRef = A93CD09019DC130B00C63879 /* AGSpriteButton.m */; };
 		CEE01A1B19519CD20024E595 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CEE01A1A19519CD20024E595 /* Foundation.framework */; };
 		CEE01A1D19519CD20024E595 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CEE01A1C19519CD20024E595 /* CoreGraphics.framework */; };
 		CEE01A1F19519CD20024E595 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CEE01A1E19519CD20024E595 /* UIKit.framework */; };
@@ -25,7 +26,6 @@
 		CEE01A4619519CD20024E595 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CEE01A1E19519CD20024E595 /* UIKit.framework */; };
 		CEE01A4E19519CD20024E595 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = CEE01A4C19519CD20024E595 /* InfoPlist.strings */; };
 		CEE01A5019519CD20024E595 /* AGSpriteButtonTests.m in Sources */ = {isa = PBXBuildFile; fileRef = CEE01A4F19519CD20024E595 /* AGSpriteButtonTests.m */; };
-		CEE01A5B19519DBA0024E595 /* AGSpriteButton.m in Sources */ = {isa = PBXBuildFile; fileRef = CEE01A5A19519DBA0024E595 /* AGSpriteButton.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -39,6 +39,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		A93CD08F19DC130B00C63879 /* AGSpriteButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AGSpriteButton.h; sourceTree = "<group>"; };
+		A93CD09019DC130B00C63879 /* AGSpriteButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AGSpriteButton.m; sourceTree = "<group>"; };
 		CEE01A1719519CD20024E595 /* AGSpriteButton.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AGSpriteButton.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CEE01A1A19519CD20024E595 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		CEE01A1C19519CD20024E595 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -63,8 +65,6 @@
 		CEE01A4B19519CD20024E595 /* AGSpriteButtonTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "AGSpriteButtonTests-Info.plist"; sourceTree = "<group>"; };
 		CEE01A4D19519CD20024E595 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		CEE01A4F19519CD20024E595 /* AGSpriteButtonTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AGSpriteButtonTests.m; sourceTree = "<group>"; };
-		CEE01A5919519DBA0024E595 /* AGSpriteButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AGSpriteButton.h; sourceTree = "<group>"; };
-		CEE01A5A19519DBA0024E595 /* AGSpriteButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AGSpriteButton.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -92,6 +92,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		A93CD08E19DC130B00C63879 /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				A93CD08F19DC130B00C63879 /* AGSpriteButton.h */,
+				A93CD09019DC130B00C63879 /* AGSpriteButton.m */,
+			);
+			path = Classes;
+			sourceTree = "<group>";
+		};
 		CEE01A0E19519CD10024E595 = {
 			isa = PBXGroup;
 			children = (
@@ -126,6 +135,7 @@
 		CEE01A2219519CD20024E595 /* AGSpriteButton */ = {
 			isa = PBXGroup;
 			children = (
+				A93CD08E19DC130B00C63879 /* Classes */,
 				CEE01A2B19519CD20024E595 /* AppDelegate.h */,
 				CEE01A2C19519CD20024E595 /* AppDelegate.m */,
 				CEE01A2E19519CD20024E595 /* Main_iPhone.storyboard */,
@@ -134,8 +144,6 @@
 				CEE01A3519519CD20024E595 /* ViewController.m */,
 				CEE01A3719519CD20024E595 /* MyScene.h */,
 				CEE01A3819519CD20024E595 /* MyScene.m */,
-				CEE01A5919519DBA0024E595 /* AGSpriteButton.h */,
-				CEE01A5A19519DBA0024E595 /* AGSpriteButton.m */,
 				CEE01A3A19519CD20024E595 /* Spaceship.png */,
 				CEE01A3C19519CD20024E595 /* Images.xcassets */,
 				CEE01A2319519CD20024E595 /* Supporting Files */,
@@ -273,8 +281,8 @@
 			files = (
 				CEE01A3919519CD20024E595 /* MyScene.m in Sources */,
 				CEE01A3619519CD20024E595 /* ViewController.m in Sources */,
-				CEE01A5B19519DBA0024E595 /* AGSpriteButton.m in Sources */,
 				CEE01A2D19519CD20024E595 /* AppDelegate.m in Sources */,
+				A93CD09119DC130B00C63879 /* AGSpriteButton.m in Sources */,
 				CEE01A2919519CD20024E595 /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -492,6 +500,7 @@
 				CEE01A5519519CD20024E595 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		CEE01A5619519CD20024E595 /* Build configuration list for PBXNativeTarget "AGSpriteButtonTests" */ = {
 			isa = XCConfigurationList;
@@ -500,6 +509,7 @@
 				CEE01A5819519CD20024E595 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

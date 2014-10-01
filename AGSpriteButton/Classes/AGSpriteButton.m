@@ -12,6 +12,9 @@
 {
     UITouch *currentTouch;
     NSMutableArray *marrSelectors;
+    
+    SKAction *actionTouchDown;
+    SKAction *actionTouchUp;
 }
 
 #pragma mark - CLASS METHODS FOR INIT
@@ -103,7 +106,8 @@
     
     marrSelectors = [[NSMutableArray alloc]init];
     
-    //    [self setLabelWithText:Nil andFont:Nil withColor:Nil];
+    actionTouchDown = [SKAction scaleBy:0.8 duration:0.1];
+    actionTouchUp = [SKAction scaleBy:1.25 duration:0.1];
     
 }
 
@@ -142,6 +146,18 @@
     
 }
 
+#pragma mark - Setters for Transform Actions
+
+-(void)setTouchDownAction:(SKAction *)action
+{
+    actionTouchDown = action;
+}
+
+-(void)setTouchUpAction:(SKAction *)action
+{
+    actionTouchUp = action;
+}
+
 #pragma mark - TOUCH DELEGATES
 
 -(void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event
@@ -156,7 +172,6 @@
             
             [self transformForTouchDown];
             
-//            [self.parent touchesBegan:touches withEvent:event];
         }
         else
         {
@@ -174,8 +189,6 @@
             CGPoint touchPoint = [currentTouch locationInNode:self];
             float lenX = self.size.width / 2;
             float lenY = self.size.height / 2;
-            
-//            [self.parent touchesMoved:touches withEvent:event];
             
             if ((touchPoint.x > lenX + 10)|| (touchPoint.x < (-lenX - 10)) || (touchPoint.y > lenY + 10) || (touchPoint.y < (-lenY - 10)))
             {
@@ -200,8 +213,6 @@
             
             [self transformForTouchUp];
             
-//            [self.parent touchesEnded:touches withEvent:event];
-            
         }
     }
 }
@@ -223,10 +234,8 @@
 #pragma mark - BUTTON TRANSFORM ON SELECTION
 
 -(void)transformForTouchDown
-{
-    //You can define your custom transformation here.
-    
-    [self runAction:[SKAction scaleBy:0.8 duration:0.1]];
+{    
+    [self runAction:actionTouchDown];
 }
 
 -(void)transformForTouchDrag
@@ -237,9 +246,7 @@
 
 -(void)transformForTouchUp
 {
-    //You can define your custom transformation here.
-    
-    [self runAction:[SKAction scaleBy:1.25 duration:0.1]];
+    [self runAction:actionTouchUp];
 }
 
 #pragma mark - TARGET/SELECTOR HANDLING
@@ -345,6 +352,8 @@
 {
     [marrSelectors removeAllObjects];
 }
+
+#pragma mark - Internal
 
 -(void)controlEventOccured:(AGButtonControlEvent)controlEvent
 {

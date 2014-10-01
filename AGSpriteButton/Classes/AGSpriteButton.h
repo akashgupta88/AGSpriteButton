@@ -43,12 +43,18 @@ typedef NS_OPTIONS(int, AGButtonControlEvent)
 
 -(void)removeAllTargets;
 
+//Set actions for touchDown and touchUp
+
+-(void)setTouchDownAction:(SKAction*)action;
+
+-(void)setTouchUpAction:(SKAction*)action;
+
 
 //LABEL METHOD
 
 -(void)setLabelWithText:(NSString*)text andFont:(UIFont*)font withColor:(UIColor*)fontColor;
 
-//Explicit Transform method
+//Explicit Transform method. Call these methods to transform the button using code.
 
 -(void)transformForTouchDown;
 -(void)transformForTouchUp;
