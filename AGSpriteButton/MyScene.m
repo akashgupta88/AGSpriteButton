@@ -36,6 +36,7 @@
         [button addTarget:self selector:@selector(addSpaceshipAtPoint:) withObject:[NSValue valueWithCGPoint:CGPointMake(self.size.width / 2, self.size.height / 2)] forControlEvent:AGButtonControlEventTouchUpInside];
         [self addChild:button];
         
+        
     }
     return self;
 }

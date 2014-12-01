@@ -8,12 +8,12 @@
 
 #import <SpriteKit/SpriteKit.h>
 
-typedef NS_OPTIONS(int, AGButtonControlEvent)
+typedef NS_OPTIONS(NSInteger, AGButtonControlEvent)
 {
-    AGButtonControlEventTouchDown = 1,
-    AGButtonControlEventTouchUp,
-    AGButtonControlEventTouchUpInside,
-    AGButtonControlEventAllEvents
+    AGButtonControlEventTouchDown = 1,  //When button is held down.
+    AGButtonControlEventTouchUp,        //When button is released.
+    AGButtonControlEventTouchUpInside,  //When button is tapped.
+    AGButtonControlEventAllEvents       //Convenience event for deletion of selector, block or action.
 };
 
 
@@ -35,6 +35,12 @@ typedef NS_OPTIONS(int, AGButtonControlEvent)
 
 +(AGSpriteButton *)buttonWithTexture:(SKTexture *)texture;
 
+
+//LABEL METHOD
+
+-(void)setLabelWithText:(NSString*)text andFont:(UIFont*)font withColor:(SKColor*)fontColor;
+
+
 //TARGET HANDLER METHODS (Similar to UIButton)
 
 -(void)addTarget:(id)target selector:(SEL)selector withObject:(id)object forControlEvent:(AGButtonControlEvent)controlEvent;
@@ -43,22 +49,28 @@ typedef NS_OPTIONS(int, AGButtonControlEvent)
 
 -(void)removeAllTargets;
 
-//Set actions for touchDown and touchUp
+
+//EXECUTE BLOCKS ON EVENTS
+
+-(void)performBlock:(void (^)())block onEvent:(AGButtonControlEvent)event;
+
+
+//EXECUTE ACTIONS ON EVENTS
+
+-(void)performAction:(SKAction*)action onObject:(id)object withEvent:(AGButtonControlEvent)event;
+
+
+//Set animation actions for touchDown and touchUp
 
 -(void)setTouchDownAction:(SKAction*)action;
 
 -(void)setTouchUpAction:(SKAction*)action;
 
 
-//LABEL METHOD
-
--(void)setLabelWithText:(NSString*)text andFont:(UIFont*)font withColor:(UIColor*)fontColor;
-
 //Explicit Transform method. Call these methods to transform the button using code.
 
 -(void)transformForTouchDown;
+
 -(void)transformForTouchUp;
-
-
 
 @end

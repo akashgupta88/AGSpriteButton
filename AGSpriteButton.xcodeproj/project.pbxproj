@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5AEA06EA1A2C9D4800D7D3BC /* SwiftTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AEA06E91A2C9D4800D7D3BC /* SwiftTest.swift */; };
 		A93CD09119DC130B00C63879 /* AGSpriteButton.m in Sources */ = {isa = PBXBuildFile; fileRef = A93CD09019DC130B00C63879 /* AGSpriteButton.m */; };
 		CEE01A1B19519CD20024E595 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CEE01A1A19519CD20024E595 /* Foundation.framework */; };
 		CEE01A1D19519CD20024E595 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CEE01A1C19519CD20024E595 /* CoreGraphics.framework */; };
@@ -39,6 +40,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		5AEA06E81A2C9D4700D7D3BC /* AGSpriteButton-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "AGSpriteButton-Bridging-Header.h"; sourceTree = "<group>"; };
+		5AEA06E91A2C9D4800D7D3BC /* SwiftTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwiftTest.swift; sourceTree = "<group>"; };
 		A93CD08F19DC130B00C63879 /* AGSpriteButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AGSpriteButton.h; sourceTree = "<group>"; };
 		A93CD09019DC130B00C63879 /* AGSpriteButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AGSpriteButton.m; sourceTree = "<group>"; };
 		CEE01A1719519CD20024E595 /* AGSpriteButton.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AGSpriteButton.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -147,6 +150,8 @@
 				CEE01A3A19519CD20024E595 /* Spaceship.png */,
 				CEE01A3C19519CD20024E595 /* Images.xcassets */,
 				CEE01A2319519CD20024E595 /* Supporting Files */,
+				5AEA06E91A2C9D4800D7D3BC /* SwiftTest.swift */,
+				5AEA06E81A2C9D4700D7D3BC /* AGSpriteButton-Bridging-Header.h */,
 			);
 			path = AGSpriteButton;
 			sourceTree = "<group>";
@@ -282,6 +287,7 @@
 				CEE01A3919519CD20024E595 /* MyScene.m in Sources */,
 				CEE01A3619519CD20024E595 /* ViewController.m in Sources */,
 				CEE01A2D19519CD20024E595 /* AppDelegate.m in Sources */,
+				5AEA06EA1A2C9D4800D7D3BC /* SwiftTest.swift in Sources */,
 				A93CD09119DC130B00C63879 /* AGSpriteButton.m in Sources */,
 				CEE01A2919519CD20024E595 /* main.m in Sources */,
 			);
@@ -418,11 +424,15 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CLANG_ENABLE_MODULES = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "AGSpriteButton/AGSpriteButton-Prefix.pch";
 				INFOPLIST_FILE = "AGSpriteButton/AGSpriteButton-Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SPRITEKIT_TEXTURE_ATLAS_OUTPUT = YES;
+				SWIFT_OBJC_BRIDGING_HEADER = "AGSpriteButton/AGSpriteButton-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -432,11 +442,14 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CLANG_ENABLE_MODULES = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "AGSpriteButton/AGSpriteButton-Prefix.pch";
 				INFOPLIST_FILE = "AGSpriteButton/AGSpriteButton-Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SPRITEKIT_TEXTURE_ATLAS_OUTPUT = YES;
+				SWIFT_OBJC_BRIDGING_HEADER = "AGSpriteButton/AGSpriteButton-Bridging-Header.h";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;

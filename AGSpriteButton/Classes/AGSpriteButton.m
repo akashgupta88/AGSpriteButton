@@ -12,6 +12,8 @@
 {
     UITouch *currentTouch;
     NSMutableArray *marrSelectors;
+    NSMutableArray *marrBlocks;
+    NSMutableArray *marrActions;
     
     SKAction *actionTouchDown;
     SKAction *actionTouchUp;
@@ -26,7 +28,7 @@
     return newButton;
 }
 
-+(AGSpriteButton *)buttonWithColor:(UIColor *)color andSize:(CGSize)size
++(AGSpriteButton *)buttonWithColor:(SKColor *)color andSize:(CGSize)size
 {
     AGSpriteButton *newButton = [[AGSpriteButton alloc]initWithColor:color size:size];
     
@@ -35,7 +37,7 @@
 
 +(AGSpriteButton *)buttonWithTexture:(SKTexture *)texture andSize:(CGSize)size
 {
-    AGSpriteButton *newButton = [[AGSpriteButton alloc]initWithTexture:texture color:[UIColor whiteColor] size:size];
+    AGSpriteButton *newButton = [[AGSpriteButton alloc]initWithTexture:texture color:[SKColor whiteColor] size:size];
     
     return newButton;
 }
@@ -60,7 +62,7 @@
     
 }
 
--(instancetype)initWithColor:(UIColor *)color size:(CGSize)size
+-(instancetype)initWithColor:(SKColor *)color size:(CGSize)size
 {
     if (self = [super initWithColor:color size:size])
     {
@@ -70,7 +72,7 @@
     return self;
 }
 
--(instancetype)initWithTexture:(SKTexture *)texture color:(UIColor *)color size:(CGSize)size
+-(instancetype)initWithTexture:(SKTexture *)texture color:(SKColor *)color size:(CGSize)size
 {
     if (self = [super initWithTexture:texture color:color size:size])
     {
@@ -104,8 +106,6 @@
     self.userInteractionEnabled = YES;
     self.exclusiveTouch = YES;
     
-    marrSelectors = [[NSMutableArray alloc]init];
-    
     actionTouchDown = [SKAction scaleBy:0.8 duration:0.1];
     actionTouchUp = [SKAction scaleBy:1.25 duration:0.1];
     
@@ -114,7 +114,7 @@
 #pragma mark - LABEL FOR BUTTON
 
 
--(void)setLabelWithText:(NSString *)text andFont:(UIFont *)font withColor:(UIColor*)fontColor
+-(void)setLabelWithText:(NSString *)text andFont:(UIFont *)font withColor:(SKColor*)fontColor
 {
     if (self.label == nil)
     {
@@ -255,6 +255,11 @@
 {
     //check whether selector is already saved, otherwise it will get called twice
     
+    if (marrSelectors == nil)
+    {
+        marrSelectors = [NSMutableArray new];
+    }
+    
     NSMutableDictionary *mdicSelector = [[NSMutableDictionary alloc]init];
     
     [mdicSelector setObject:target forKey:@"target"];
@@ -351,15 +356,55 @@
 -(void)removeAllTargets
 {
     [marrSelectors removeAllObjects];
+    marrSelectors = nil;
+}
+
+#pragma mark - CODE BLOCKS
+
+-(void)performBlock:(void (^)())block onEvent:(AGButtonControlEvent)event
+{
+    NSDictionary *dicBlock = [NSDictionary dictionaryWithObjectsAndKeys:block, @"block", [NSNumber numberWithInteger:event], @"controlEvent", nil];
+    
+    if (dicBlock)
+    {
+        if (marrBlocks == nil)
+        {
+            marrBlocks = [NSMutableArray new];
+        }
+        
+        [marrBlocks addObject:dicBlock];
+    }
+}
+
+#pragma mark - ACTIONS HANDLING 
+
+-(void)performAction:(SKAction *)action onObject:(id)object withEvent:(AGButtonControlEvent)event
+{
+    if ([object respondsToSelector:@selector(runAction:)])
+    {
+        NSDictionary *dicAction = [NSDictionary dictionaryWithObjectsAndKeys:action, @"action", object, @"object", [NSNumber numberWithInteger:event], @"controlEvent",  nil];
+        
+        if (marrActions == nil)
+        {
+            marrActions = [NSMutableArray new];
+        }
+        
+        [marrActions addObject:dicAction];
+    }
+    else
+    {
+        [NSException raise:@"Incompatible object." format:@"Object %@ cannot perform actions.", object];
+    }
 }
 
 #pragma mark - Internal
 
 -(void)controlEventOccured:(AGButtonControlEvent)controlEvent
 {
-    for (NSDictionary *dicSelector in marrSelectors)
-    {
-        if ([[dicSelector objectForKey:@"controlEvent"]intValue] == controlEvent)
+    //Execute selectors
+    for (NSDictionary *dicSelector in marrSelectors) {
+        
+        if ([[dicSelector objectForKey:@"controlEvent"]integerValue] == controlEvent)
         {
             id target = [dicSelector objectForKey:@"target"];
             
@@ -379,6 +424,31 @@
                 void (*func)(id, SEL) = (void *)imp;
                 func(target, selector);
             }
+        }
+    }
+    
+    //Execute blocks
+    
+    for (NSDictionary *dicBlock in marrBlocks)
+    {
+        if ([[dicBlock objectForKey:@"controlEvent"]integerValue] == controlEvent)
+        {
+            void (^block)() = [dicBlock objectForKey:@"block"];
+            
+            block();
+        }
+    }
+    
+    //Execute actions
+    
+    for (NSDictionary *dicAction in marrActions)
+    {
+        if ([[dicAction objectForKey:@"controlEvent"] integerValue] == controlEvent)
+        {
+            SKAction *action = [dicAction objectForKey:@"action"];
+            SKNode *object = [dicAction objectForKey:@"object"];
+            
+            [object runAction:action];
         }
     }
 }
