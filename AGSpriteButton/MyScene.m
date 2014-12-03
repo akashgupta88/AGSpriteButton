@@ -33,9 +33,21 @@
         AGSpriteButton *button = [AGSpriteButton buttonWithColor:[UIColor redColor] andSize:CGSizeMake(300, 100)];
         [button setLabelWithText:@"Add New Spaceship" andFont:nil withColor:nil];
         button.position = CGPointMake(self.size.width / 2, self.size.height / 3);
-        [button addTarget:self selector:@selector(addSpaceshipAtPoint:) withObject:[NSValue valueWithCGPoint:CGPointMake(self.size.width / 2, self.size.height / 2)] forControlEvent:AGButtonControlEventTouchUpInside];
         [self addChild:button];
         
+        //Perform target for event
+        [button addTarget:self selector:@selector(addSpaceshipAtPoint:) withObject:[NSValue valueWithCGPoint:CGPointMake(self.size.width / 2, self.size.height / 2)] forControlEvent:AGButtonControlEventTouchUpInside];
+        
+        //Perform action on event
+        SKSpriteNode *someSprite = [SKSpriteNode spriteNodeWithColor:[UIColor greenColor] size:CGSizeMake(50, 50)];
+        
+        SKAction *rotate = [SKAction rotateByAngle:M_PI_4 duration:0.5];
+        [button performAction:rotate onObject:someSprite withEvent:AGButtonControlEventTouchDown];
+        
+        //Perfrom block on event
+        [button performBlock:^{
+            [self addSpaceshipAtPoint:[NSValue valueWithCGPoint:CGPointMake(100, 100)]];
+        } onEvent:AGButtonControlEventTouchUp];
         
     }
     return self;
