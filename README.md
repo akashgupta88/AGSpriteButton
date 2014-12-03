@@ -14,7 +14,7 @@ It can be assigned an action to be run on a particular node for an event:
     SKAction *rotate = [SKAction rotateByAngle:M_PI_4 duration:0.5];
         [button performAction:rotate onObject:someSprite withEvent:AGButtonControlEventTouchDown];
         
-It can be assigned a block to be run on a particular node for an event:
+It can be assigned a block to be executed on the occurrence of an event:
 
     [button performBlock:^{
             [self addSpaceshipAtPoint:[NSValue valueWithCGPoint:CGPointMake(100, 100)]];
