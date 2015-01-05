@@ -10,9 +10,9 @@ import Foundation
 
 //Example on setting button in Swift.
 
-var button:AGSpriteButton = AGSpriteButton(color:UIColor.redColor(), size:CGSize(width:100, height:50))
-button.position = CGPoint(x:10, y:10)
+//var button:AGSpriteButton = AGSpriteButton(color:UIColor.redColor(), size:CGSize(width:100, height:50))
+//button.position = CGPoint(x:10, y:10)
 
-self.addChild(button)
+//self.addChild(button)
 
 

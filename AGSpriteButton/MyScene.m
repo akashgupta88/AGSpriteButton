@@ -35,12 +35,15 @@
         button.position = CGPointMake(self.size.width / 2, self.size.height / 3);
         [self addChild:button];
         
+        SKSpriteNode *someSprite = [SKSpriteNode spriteNodeWithColor:[UIColor greenColor] size:CGSizeMake(50, 50)];
+        someSprite.position = CGPointMake(self.size.width/2, 100);
+        [self addChild:someSprite];
+
+        
         //Perform target for event
         [button addTarget:self selector:@selector(addSpaceshipAtPoint:) withObject:[NSValue valueWithCGPoint:CGPointMake(self.size.width / 2, self.size.height / 2)] forControlEvent:AGButtonControlEventTouchUpInside];
         
         //Perform action on event
-        SKSpriteNode *someSprite = [SKSpriteNode spriteNodeWithColor:[UIColor greenColor] size:CGSizeMake(50, 50)];
-        
         SKAction *rotate = [SKAction rotateByAngle:M_PI_4 duration:0.5];
         [button performAction:rotate onObject:someSprite withEvent:AGButtonControlEventTouchDown];
         
