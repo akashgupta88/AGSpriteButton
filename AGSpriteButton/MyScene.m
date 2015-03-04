@@ -7,6 +7,7 @@
 //
 
 #import "MyScene.h"
+#import "AGSpriteButton-Swift.h"
 
 @implementation MyScene
 
@@ -45,7 +46,7 @@
         
         //Perform action on event
         SKAction *rotate = [SKAction rotateByAngle:M_PI_4 duration:0.5];
-        [button performAction:rotate onObject:someSprite withEvent:AGButtonControlEventTouchDown];
+        [button performAction:rotate onNode:someSprite withEvent:AGButtonControlEventTouchDown];
         
         //Perfrom block on event
         [button performBlock:^{

@@ -57,7 +57,7 @@ typedef NS_OPTIONS(NSInteger, AGButtonControlEvent)
 
 //EXECUTE ACTIONS ON EVENTS
 
--(void)performAction:(SKAction*)action onObject:(id)object withEvent:(AGButtonControlEvent)event;
+-(void)performAction:(SKAction*)action onNode:(SKNode*)object withEvent:(AGButtonControlEvent)event;
 
 
 //Set animation actions for touchDown and touchUp

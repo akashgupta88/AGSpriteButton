@@ -378,7 +378,7 @@
 
 #pragma mark - ACTIONS HANDLING 
 
--(void)performAction:(SKAction *)action onObject:(id)object withEvent:(AGButtonControlEvent)event
+-(void)performAction:(SKAction *)action onNode:(SKNode*)object withEvent:(AGButtonControlEvent)event
 {
     if ([object respondsToSelector:@selector(runAction:)])
     {
