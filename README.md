@@ -2,7 +2,7 @@
 
 A custom button control for SpriteKit. Subclassed from SKSpriteNode, it handles touches on it's own and performs a desired selector, block or action. 
 
-<center>![AGSpriteButton](https://raw.github.com/akashgupta88/AGSpriteButton/master/AGSPriteButton.gif)
+![AGSpriteButton](https://github.com/akashgupta88/AGSpriteButton/blob/master/AGSpriteButton.gif?raw=true)
 
 <h2>Setup</h2>
 
