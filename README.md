@@ -4,6 +4,13 @@ A custom button control for SpriteKit. Subclassed from SKSpriteNode, it handles 
 
 ![AGSpriteButton](https://github.com/akashgupta88/AGSpriteButton/blob/master/AGSpriteButton.gif?raw=true)
 
+This control is useful for isolating the functionality of a particulat button node along with it's declaration. Most suited for situations like:
+
+<ul>
+<li>Creating menu items</li>
+<li>HUD screens</li>
+<li>In-game controls</li>
+
 <h2>Setup</h2>
 
 Typically, a button can be set up using the following code:
@@ -37,8 +44,6 @@ It can be assigned a block to be executed on the occurrence of an event:
     [button performBlock:^{
             [self addSpaceshipAtPoint:[NSValue valueWithCGPoint:CGPointMake(100, 100)]];
         } onEvent:AGButtonControlEventTouchUp];
-
-<hr>
 
 <h2>Usage in Swift</h2>
 
