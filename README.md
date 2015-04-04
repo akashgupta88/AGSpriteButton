@@ -10,6 +10,7 @@ This control is useful for isolating the functionality of a particulat button no
 <li>Creating menu items</li>
 <li>HUD screens</li>
 <li>In-game controls</li>
+</ul>
 
 <h2>Setup</h2>
 
