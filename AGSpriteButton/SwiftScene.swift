@@ -17,7 +17,7 @@ class SwiftScene: SKScene {
         
         button.position = CGPoint(x: self.size.width / 2, y: self.size.height / 2)
         
-        button.addTarget(self, selector: "addSpaceship", withObject: nil, forControlEvent:AGButtonControlEvent.TouchUpInside)
+        button.addTarget(self, selector: #selector(SwiftScene.addSpaceship), withObject: nil, forControlEvent:AGButtonControlEvent.TouchUpInside)
         button.setLabelWithText("Spaceship", andFont: nil, withColor: UIColor.blackColor())
         
         addChild(button)

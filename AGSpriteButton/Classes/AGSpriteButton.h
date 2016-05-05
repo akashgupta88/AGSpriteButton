@@ -16,6 +16,7 @@ typedef NS_OPTIONS(NSInteger, AGButtonControlEvent)
     AGButtonControlEventAllEvents       //Convenience event for deletion of selector, block or action.
 };
 
+NS_ASSUME_NONNULL_BEGIN
 
 @interface AGSpriteButton : SKSpriteNode
 
@@ -38,12 +39,12 @@ typedef NS_OPTIONS(NSInteger, AGButtonControlEvent)
 
 //LABEL METHOD
 
--(void)setLabelWithText:(NSString*)text andFont:(UIFont*)font withColor:(SKColor*)fontColor;
+-(void)setLabelWithText:(nullable NSString*)text andFont:(nullable UIFont*)font withColor:(nullable SKColor*)fontColor;
 
 
 //TARGET HANDLER METHODS (Similar to UIButton)
 
--(void)addTarget:(id)target selector:(SEL)selector withObject:(id)object forControlEvent:(AGButtonControlEvent)controlEvent;
+-(void)addTarget:(id)target selector:(SEL)selector withObject:(nullable id)object forControlEvent:(AGButtonControlEvent)controlEvent;
 
 -(void)removeTarget:(id)target selector:(SEL)selector forControlEvent:(AGButtonControlEvent)controlEvent;
 
@@ -74,3 +75,5 @@ typedef NS_OPTIONS(NSInteger, AGButtonControlEvent)
 -(void)transformForTouchUp;
 
 @end
+
+NS_ASSUME_NONNULL_END
